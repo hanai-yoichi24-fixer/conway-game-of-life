@@ -81,6 +81,38 @@ h1 {
   background: #dd6b20;
 }
 
+.btn-pattern {
+  background: #9f7aea;
+  padding: 8px 12px;
+  font-size: 13px;
+}
+
+.btn-pattern:hover {
+  background: #805ad5;
+}
+
+.patterns {
+  background: #faf5ff;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+.patterns label {
+  display: block;
+  color: #553399;
+  font-weight: 600;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.pattern-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
 .settings {
   background: #f7fafc;
   padding: 15px;
@@ -179,5 +211,14 @@ h1 {
   .btn {
     padding: 8px 12px;
     font-size: 12px;
+  }
+
+  .pattern-buttons {
+    gap: 6px;
+  }
+
+  .btn-pattern {
+    padding: 6px 10px;
+    font-size: 11px;
   }
 }
