@@ -8,6 +8,13 @@ An interactive implementation of Conway's cellular automaton, a zero-player game
 - **Auto Simulation**: Run the game automatically with adjustable speed
 - **Step Control**: Advance one generation at a time
 - **Random Generation**: Fill grid with random pattern
+- **Famous Patterns**: One-click placement of classic patterns:
+  - 🛸 **Glider** - Moves diagonally across the grid
+  - 💫 **Blinker** - Oscillates with period 2
+  - ◼️ **Block** - Static stable pattern
+  - 🐸 **Toad** - Oscillates with period 2
+  - 🔔 **Beacon** - Oscillates with period 2
+  - ✨ **Pulsar** - Complex oscillator with period 3
 - **Clear**: Reset the grid
 - **Live Counter**: Track number of alive cells
 
@@ -23,8 +30,9 @@ An interactive implementation of Conway's cellular automaton, a zero-player game
 - **Step**: Advance one generation
 - **Random**: Fill grid with random pattern
 - **Clear**: Reset all cells to dead
-- **Speed Slider**: Control simulation speed
-- **Click Cells**: Toggle individual cells
+- **Place Pattern**: Click any pattern button to place it in the center
+- **Speed Slider**: Control simulation speed (1-100)
+- **Click Cells**: Toggle individual cells manually
 
 ## Getting Started
 
@@ -41,3 +49,14 @@ Open [http://localhost:3000](http://localhost:3000) to play.
 npm run build
 npm start
 ```
+
+## Patterns Explained
+
+- **Glider**: A 5-cell pattern that travels diagonally. One of the most interesting patterns in GoL.
+- **Blinker**: The smallest oscillator. Toggles between horizontal and vertical every generation.
+- **Block**: A 2×2 square. Completely stable and does not change.
+- **Toad**: A period-2 oscillator with 6 cells. Creates a pleasing bouncing animation.
+- **Beacon**: A period-2 oscillator made of two blocks touching at corners.
+- **Pulsar**: A famous period-3 oscillator with 48 cells. Creates a complex pulsing pattern.
+
+Try combining patterns or placing gliders to interact with other structures!
