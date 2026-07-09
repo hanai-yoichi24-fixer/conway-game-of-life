@@ -6,6 +6,7 @@ const GRID_SIZE = 50;
 const CELL_SIZE = 12;
 
 type Grid = boolean[][];
+type Pattern = { row: number; col: number }[];
 
 const createEmptyGrid = (): Grid => {
   return Array(GRID_SIZE)
@@ -53,6 +54,76 @@ const stepSimulation = (grid: Grid): Grid => {
   return newGrid;
 };
 
+// Famous patterns
+const PATTERNS = {
+  glider: [
+    { row: 0, col: 1 },
+    { row: 1, col: 2 },
+    { row: 2, col: 0 },
+    { row: 2, col: 1 },
+    { row: 2, col: 2 },
+  ] as Pattern,
+  blinker: [
+    { row: 0, col: 0 },
+    { row: 0, col: 1 },
+    { row: 0, col: 2 },
+  ] as Pattern,
+  block: [
+    { row: 0, col: 0 },
+    { row: 0, col: 1 },
+    { row: 1, col: 0 },
+    { row: 1, col: 1 },
+  ] as Pattern,
+  toad: [
+    { row: 0, col: 1 },
+    { row: 0, col: 2 },
+    { row: 0, col: 3 },
+    { row: 1, col: 0 },
+    { row: 1, col: 1 },
+    { row: 1, col: 2 },
+  ] as Pattern,
+  beacon: [
+    { row: 0, col: 0 },
+    { row: 0, col: 1 },
+    { row: 1, col: 0 },
+    { row: 2, col: 2 },
+    { row: 2, col: 3 },
+    { row: 3, col: 3 },
+  ] as Pattern,
+  pulsar: [
+    { row: 0, col: 2 },
+    { row: 0, col: 3 },
+    { row: 0, col: 4 },
+    { row: 0, col: 8 },
+    { row: 0, col: 9 },
+    { row: 0, col: 10 },
+    { row: 2, col: 0 },
+    { row: 2, col: 5 },
+    { row: 2, col: 10 },
+    { row: 3, col: 0 },
+    { row: 3, col: 5 },
+    { row: 3, col: 10 },
+    { row: 4, col: 0 },
+    { row: 4, col: 5 },
+    { row: 4, col: 10 },
+    { row: 5, col: 2 },
+    { row: 5, col: 3 },
+    { row: 5, col: 4 },
+    { row: 5, col: 8 },
+    { row: 5, col: 9 },
+    { row: 5, col: 10 },
+    { row: 8, col: 2 },
+    { row: 8, col: 3 },
+    { row: 8, col: 4 },
+    { row: 8, col: 8 },
+    { row: 8, col: 9 },
+    { row: 8, col: 10 },
+    { row: 10, col: 0 },
+    { row: 10, col: 5 },
+    { row: 10, col: 10 },
+  ] as Pattern,
+};
+
 export default function GameBoard() {
   const [grid, setGrid] = useState<Grid>(createEmptyGrid());
   const [isRunning, setIsRunning] = useState(false);
@@ -85,6 +156,23 @@ export default function GameBoard() {
       newGrid[row][col] = !newGrid[row][col];
       return newGrid;
     });
+  }, []);
+
+  const placePattern = useCallback((pattern: Pattern) => {
+    setGrid((prevGrid) => {
+      const newGrid = prevGrid.map((r) => [...r]);
+      const startRow = Math.floor(GRID_SIZE / 2);
+      const startCol = Math.floor(GRID_SIZE / 2);
+
+      pattern.forEach((cell) => {
+        const r = (startRow + cell.row) % GRID_SIZE;
+        const c = (startCol + cell.col) % GRID_SIZE;
+        newGrid[r][c] = true;
+      });
+
+      return newGrid;
+    });
+    setIsRunning(false);
   }, []);
 
   const handleReset = useCallback(() => {
@@ -126,6 +214,54 @@ export default function GameBoard() {
         <button onClick={handleReset} className="btn btn-danger">
           🗑 Clear
         </button>
+      </div>
+
+      <div className="patterns">
+        <label>🎨 Place Pattern:</label>
+        <div className="pattern-buttons">
+          <button
+            onClick={() => placePattern(PATTERNS.glider)}
+            className="btn btn-pattern"
+            title="Glider - moves diagonally"
+          >
+            🛸 Glider
+          </button>
+          <button
+            onClick={() => placePattern(PATTERNS.blinker)}
+            className="btn btn-pattern"
+            title="Blinker - period 2"
+          >
+            💫 Blinker
+          </button>
+          <button
+            onClick={() => placePattern(PATTERNS.block)}
+            className="btn btn-pattern"
+            title="Block - static"
+          >
+            ◼️ Block
+          </button>
+          <button
+            onClick={() => placePattern(PATTERNS.toad)}
+            className="btn btn-pattern"
+            title="Toad - period 2"
+          >
+            🐸 Toad
+          </button>
+          <button
+            onClick={() => placePattern(PATTERNS.beacon)}
+            className="btn btn-pattern"
+            title="Beacon - period 2"
+          >
+            🔔 Beacon
+          </button>
+          <button
+            onClick={() => placePattern(PATTERNS.pulsar)}
+            className="btn btn-pattern"
+            title="Pulsar - period 3"
+          >
+            ✨ Pulsar
+          </button>
+        </div>
       </div>
 
       <div className="settings">
