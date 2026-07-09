@@ -122,6 +122,16 @@ const PATTERNS = {
     { row: 10, col: 5 },
     { row: 10, col: 10 },
   ] as Pattern,
+  garden: [
+    { row: 0, col: 3 },
+    { row: 1, col: 0 },
+    { row: 1, col: 1 },
+    { row: 1, col: 2 },
+    { row: 2, col: 0 },
+    { row: 2, col: 2 },
+    { row: 3, col: 3 },
+    { row: 4, col: 3 },
+  ] as Pattern,
 };
 
 export default function GameBoard() {
@@ -260,6 +270,13 @@ export default function GameBoard() {
             title="Pulsar - period 3"
           >
             ✨ Pulsar
+          </button>
+          <button
+            onClick={() => placePattern(PATTERNS.garden)}
+            className="btn btn-pattern"
+            title="Garden of Eden - no parent configuration"
+          >
+            🌿 Garden
           </button>
         </div>
       </div>
