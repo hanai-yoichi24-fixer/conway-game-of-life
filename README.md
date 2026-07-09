@@ -59,7 +59,7 @@ npm start
 - **Toad**: A period-2 oscillator with 6 cells. Creates a pleasing bouncing animation.
 - **Beacon**: A period-2 oscillator made of two blocks touching at corners.
 - **Pulsar**: A famous period-3 oscillator with 48 cells. Creates a complex pulsing pattern.
-- **Garden of Eden**: A special configuration that has no predecessor. It can only appear as an initial state, never through evolution from another state. Try placing it and watching what happens!
+- **Garden of Eden** (10×10, 56 cells): Discovered in 2011 by Marijn Heule et al. This is one of the smallest known Orphan patterns - a configuration that has **no parent configuration**. In other words, no previous generation in any evolution can produce this state. It can only occur as an initial condition. This makes it a fascinating example of the Garden of Eden theorem in cellular automata!
 
 ## Fun Experiments
 
@@ -67,3 +67,4 @@ Try combining patterns or placing gliders to interact with other structures! Exp
 - Multiple gliders colliding with each other
 - Placing patterns inside the Garden of Eden
 - Creating your own patterns with manual cell placement
+- Observing how the Garden of Eden evolves - it will transform but can never be recreated from any other state
