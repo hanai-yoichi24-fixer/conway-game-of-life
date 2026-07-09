@@ -122,15 +122,76 @@ const PATTERNS = {
     { row: 10, col: 5 },
     { row: 10, col: 10 },
   ] as Pattern,
+  // Garden of Eden 6 (2011) - Smallest known 10×10 configuration with 56 cells
+  // No predecessor configuration can generate this state
   garden: [
-    { row: 0, col: 3 },
-    { row: 1, col: 0 },
-    { row: 1, col: 1 },
+    // Row 0: bob3obo
+    { row: 0, col: 1 },
+    { row: 0, col: 4 },
+    { row: 0, col: 5 },
+    { row: 0, col: 6 },
+    { row: 0, col: 8 },
+    // Row 1: 2bobobo2bo
     { row: 1, col: 2 },
+    { row: 1, col: 4 },
+    { row: 1, col: 6 },
+    { row: 1, col: 9 },
+    // Row 2: ob3o2b2o
     { row: 2, col: 0 },
     { row: 2, col: 2 },
+    { row: 2, col: 3 },
+    { row: 2, col: 4 },
+    { row: 2, col: 7 },
+    { row: 2, col: 8 },
+    // Row 3: bob5obo
+    { row: 3, col: 1 },
     { row: 3, col: 3 },
-    { row: 4, col: 3 },
+    { row: 3, col: 4 },
+    { row: 3, col: 5 },
+    { row: 3, col: 6 },
+    { row: 3, col: 7 },
+    { row: 3, col: 9 },
+    // Row 4: o2bo2b4o
+    { row: 4, col: 0 },
+    { row: 4, col: 2 },
+    { row: 4, col: 5 },
+    { row: 4, col: 6 },
+    { row: 4, col: 7 },
+    { row: 4, col: 8 },
+    // Row 5: 4o2bo2bo
+    { row: 5, col: 0 },
+    { row: 5, col: 1 },
+    { row: 5, col: 2 },
+    { row: 5, col: 3 },
+    { row: 5, col: 5 },
+    { row: 5, col: 8 },
+    { row: 5, col: 9 },
+    // Row 6: ob5obo
+    { row: 6, col: 0 },
+    { row: 6, col: 2 },
+    { row: 6, col: 3 },
+    { row: 6, col: 4 },
+    { row: 6, col: 5 },
+    { row: 6, col: 6 },
+    { row: 6, col: 8 },
+    // Row 7: b2o2b3obo
+    { row: 7, col: 1 },
+    { row: 7, col: 2 },
+    { row: 7, col: 5 },
+    { row: 7, col: 6 },
+    { row: 7, col: 7 },
+    { row: 7, col: 9 },
+    // Row 8: o2bobobo
+    { row: 8, col: 0 },
+    { row: 8, col: 2 },
+    { row: 8, col: 4 },
+    { row: 8, col: 6 },
+    // Row 9: 2bob3obo
+    { row: 9, col: 2 },
+    { row: 9, col: 4 },
+    { row: 9, col: 5 },
+    { row: 9, col: 6 },
+    { row: 9, col: 8 },
   ] as Pattern,
 };
 
@@ -274,7 +335,7 @@ export default function GameBoard() {
           <button
             onClick={() => placePattern(PATTERNS.garden)}
             className="btn btn-pattern"
-            title="Garden of Eden - no parent configuration"
+            title="Garden of Eden 6 - no parent configuration exists"
           >
             🌿 Garden
           </button>
