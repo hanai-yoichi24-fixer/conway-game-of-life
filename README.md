@@ -15,6 +15,7 @@ An interactive implementation of Conway's cellular automaton, a zero-player game
   - 🐸 **Toad** - Oscillates with period 2
   - 🔔 **Beacon** - Oscillates with period 2
   - ✨ **Pulsar** - Complex oscillator with period 3
+  - 🌿 **Garden of Eden** - A configuration with no parent state
 - **Clear**: Reset the grid
 - **Live Counter**: Track number of alive cells
 
@@ -58,5 +59,11 @@ npm start
 - **Toad**: A period-2 oscillator with 6 cells. Creates a pleasing bouncing animation.
 - **Beacon**: A period-2 oscillator made of two blocks touching at corners.
 - **Pulsar**: A famous period-3 oscillator with 48 cells. Creates a complex pulsing pattern.
+- **Garden of Eden**: A special configuration that has no predecessor. It can only appear as an initial state, never through evolution from another state. Try placing it and watching what happens!
 
-Try combining patterns or placing gliders to interact with other structures!
+## Fun Experiments
+
+Try combining patterns or placing gliders to interact with other structures! Experiment with:
+- Multiple gliders colliding with each other
+- Placing patterns inside the Garden of Eden
+- Creating your own patterns with manual cell placement
